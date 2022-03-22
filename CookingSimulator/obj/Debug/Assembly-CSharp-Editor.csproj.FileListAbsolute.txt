@@ -1,0 +1,2 @@
+/Users/clementine/Documents/Virtual Reality/CookingSimulator/obj/Debug/Assembly-CSharp-Editor.csproj.AssemblyReference.cache
+/Users/clementine/Documents/Virtual Reality/CookingSimulator/obj/Debug/Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
