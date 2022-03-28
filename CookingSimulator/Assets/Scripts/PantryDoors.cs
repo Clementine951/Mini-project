@@ -5,6 +5,10 @@ using UnityEngine;
 public class PantryDoors : MonoBehaviour
 {
     // The caracter open the pantry when press N
+    // Press P to take a plate
+    // Press H to take some bread
+    // he need a plate to take some bread
+    // press x to realese
     public Animator doorOpening;
     public Animator grabBread;
     public Animator grabPlate;
@@ -12,6 +16,8 @@ public class PantryDoors : MonoBehaviour
     private bool test = false;
     private bool front = false;
     private bool plate = false;
+    public bool havePlate = false;
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -43,16 +49,20 @@ public class PantryDoors : MonoBehaviour
                 front = true;
             }
             if (front) {
-                print("Press H to grab bread");
-                print("Press P to grab bread");
-                if (Input.GetKey(KeyCode.H))
-                {
-                    grabBread.SetBool("grabBread", true);
-                }
+                print("Press P to grab plate");
                 if (Input.GetKey(KeyCode.P))
                 {
                     grabPlate.SetBool("grabPlate", true);
                     plate = true;
+                    havePlate = true;
+                }
+            }
+            if (plate)
+            {
+                print("Press H to grab some bread");
+                if (Input.GetKey(KeyCode.H))
+                {
+                    grabBread.SetBool("grabBread", true);
                 }
             }
         }
@@ -62,6 +72,7 @@ public class PantryDoors : MonoBehaviour
             grabBread.SetBool("grabBread", false);
             grabPlate.SetBool("grabPlate", false);
             plate = false;
+            havePlate = false;
         }
     }
 

@@ -10,7 +10,8 @@ public class Pan : MonoBehaviour
     // after 70s the steak burn
     public Animator PanSteak;
     public Animator GrabCookedSteak;
-    private bool inFrontOfPan = false;
+    public FridgeDoor frD;
+    public bool inFrontOfPan = false;
     private bool steakCooked = false;
     private bool steakBurned = false;
     private bool grabAfterBurned = true;
@@ -32,43 +33,46 @@ public class Pan : MonoBehaviour
 
     void Update()
     {
-        if (inFrontOfPan)
+        if (frD.steak)
         {
-            if (Input.GetKey(KeyCode.S))
+            if (inFrontOfPan)
             {
-                PanSteak.SetBool("FrontStove", true);
-                StartCoroutine(ExecuteAfterTime(30));
-                if (grabAfterBurned)
+                print("Press S to put your steak in the pan");
+                if (Input.GetKey(KeyCode.S))
                 {
-                    StartCoroutine(ExecuteAfterTime2(70));
+                    PanSteak.SetBool("FrontStove", true);
+                    StartCoroutine(ExecuteAfterTime(30));
+                    if (grabAfterBurned)
+                    {
+                        StartCoroutine(ExecuteAfterTime2(70));
+                    }
                 }
-                
-
-            }
-            if (steakCooked)
-            {
-                print("Press G to take your steak before it burns! ");
-
-                if (Input.GetKey(KeyCode.G))
+                if (steakCooked)
                 {
-                    grabAfterBurned = false;
-                    PanSteak.SetBool("FrontStove", false);
-                    GrabCookedSteak.SetBool("CookedSteak", true);
+                    print("Press G to take your steak before it burns! ");
 
+                    if (Input.GetKey(KeyCode.G))
+                    {
+                        grabAfterBurned = false;
+                        PanSteak.SetBool("FrontStove", false);
+                        GrabCookedSteak.SetBool("CookedSteak", true);
+
+                    }
                 }
-            }
-            if (Input.GetKey(KeyCode.X))
-            {
-                GrabCookedSteak.SetBool("CookedSteak", false);
-            }
-            if (steakBurned)
-            {
                 if (Input.GetKey(KeyCode.X))
                 {
-                    PanSteak.SetBool("FrontStove", false);
+                    GrabCookedSteak.SetBool("CookedSteak", false);
+                }
+                if (steakBurned)
+                {
+                    if (Input.GetKey(KeyCode.X))
+                    {
+                        PanSteak.SetBool("FrontStove", false);
+                    }
                 }
             }
         }
+        
     }
 
     IEnumerator ExecuteAfterTime(float time)
@@ -90,3 +94,5 @@ public class Pan : MonoBehaviour
     }
 
 }
+
+

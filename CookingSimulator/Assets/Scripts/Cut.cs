@@ -12,6 +12,7 @@ public class Cut : MonoBehaviour
     public Animator CheeseCut;
     public Animator Cheese;
     public Animator SliceCheese;
+    public FridgeDoor frD;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -36,24 +37,30 @@ public class Cut : MonoBehaviour
     {
         if (trig)
         {
-            print("Press C to cut a tomato ");
-            print("Press V to cut cheese");
+            print("on trig");
 
-            if (Input.GetKey(KeyCode.C))
+            if (frD.tomato)
             {
-                Tomato.SetBool("Tomato", false);
-                TomatoCut.SetBool("TomatoCut", true);
-                cut = true;
-                StartCoroutine(ExecuteAfterTime(4));
-                
+                print("Press C to cut a tomato ");
+                if (Input.GetKey(KeyCode.C))
+                {
+                    Tomato.SetBool("Tomato", false);
+                    TomatoCut.SetBool("TomatoCut", true);
+                    cut = true;
+                    StartCoroutine(ExecuteAfterTime(4));
+                }
             }
-            if (Input.GetKey(KeyCode.V))
+            if (frD.cheese)
             {
-                Cheese.SetBool("Cheese", false);
-                CheeseCut.SetBool("CheeseCut", true);
-                cut = true;
-                StartCoroutine(ExecuteAfterTimeCheese(4));
+                print("Press C to cut cheese");
+                if (Input.GetKey(KeyCode.C))
+                {
+                    Cheese.SetBool("Cheese", false);
+                    CheeseCut.SetBool("CheeseCut", true);
+                    cut = true;
+                    StartCoroutine(ExecuteAfterTimeCheese(4));
 
+                }
             }
 
             if (cut)
@@ -69,6 +76,12 @@ public class Cut : MonoBehaviour
                     SliceCheese.SetBool("sliceC", true);
                 }
             }
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            SliceCheese.SetBool("sliceC", false);
+            SliceTomato.SetBool("slice", false);
+
         }
     }
 
