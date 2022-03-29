@@ -21,6 +21,7 @@ public class FridgeDoor : MonoBehaviour
     public bool steak = false;
     public bool tomato = false;
     public bool cheese = false;
+    public bool salad = false;
 
 
     public void OnTriggerEnter(Collider other)
@@ -40,9 +41,6 @@ public class FridgeDoor : MonoBehaviour
         {
             print("You need a plate to take ingredients.");
         }
-
-        
-
     }
 
 
@@ -59,17 +57,8 @@ public class FridgeDoor : MonoBehaviour
 
     void Update()
     {
-        if (tomato)
-        {
-            print("TOMATO");
-        }
-        if (!tomato)
-        {
-            print("NO tomato");
-        }
         if (test)
         {
-            // problem here script non well updated
             if (paD.havePlate)
             {
                 if (Input.GetKey(KeyCode.S))
@@ -83,12 +72,12 @@ public class FridgeDoor : MonoBehaviour
                     paD.grabPlate.SetBool("grabPlate", false);
                     GrabTomato.SetBool("Tomato", true);
                     tomato = true;
-                    print("have tomato");
                 }
                 if (Input.GetKey(KeyCode.L))
                 {
                     paD.grabPlate.SetBool("grabPlate", false);
                     grabSalad.SetBool("Salad", true);
+                    salad = true;
                 }
                 if (Input.GetKey(KeyCode.F))
                 {
@@ -96,19 +85,17 @@ public class FridgeDoor : MonoBehaviour
                     grabCheese.SetBool("Cheese", true);
                     cheese = true;
                 }
-                
             }
-            
-
         }
+
         if (Input.GetKey(KeyCode.X))
         {
             GrabSteak.SetBool("Steak", false);
             steak = false;
             GrabTomato.SetBool("Tomato", false);
             tomato = false;
-            print("tomato false");
             grabSalad.SetBool("Salad", false);
+            salad = false;
             grabCheese.SetBool("Cheese", false);
             cheese = false;
         }

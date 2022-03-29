@@ -6,7 +6,7 @@ public class PantryDoors : MonoBehaviour
 {
     // The caracter open the pantry when press N
     // Press P to take a plate
-    // Press H to take some bread
+    // Press B to take some bread
     // he need a plate to take some bread
     // press x to realese
     public Animator doorOpening;
@@ -15,8 +15,9 @@ public class PantryDoors : MonoBehaviour
 
     private bool test = false;
     private bool front = false;
-    private bool plate = false;
+    //private bool plate = false;
     public bool havePlate = false;
+    public bool haveBread = false;
 
 
     public void OnTriggerEnter(Collider other)
@@ -53,16 +54,19 @@ public class PantryDoors : MonoBehaviour
                 if (Input.GetKey(KeyCode.P))
                 {
                     grabPlate.SetBool("grabPlate", true);
-                    plate = true;
+                    //plate = true;
                     havePlate = true;
                 }
             }
-            if (plate)
+            if (havePlate)
             {
-                print("Press H to grab some bread");
-                if (Input.GetKey(KeyCode.H))
+                print("Press B to grab some bread");
+                if (Input.GetKey(KeyCode.B))
                 {
+                    print("you have bread");
+                    grabPlate.SetBool("grabPlate", false);
                     grabBread.SetBool("grabBread", true);
+                    haveBread = true;
                 }
             }
         }
@@ -71,8 +75,9 @@ public class PantryDoors : MonoBehaviour
         {
             grabBread.SetBool("grabBread", false);
             grabPlate.SetBool("grabPlate", false);
-            plate = false;
+            //plate = false;
             havePlate = false;
+            haveBread = false;
         }
     }
 

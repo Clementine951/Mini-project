@@ -16,6 +16,8 @@ public class Pan : MonoBehaviour
     private bool steakBurned = false;
     private bool grabAfterBurned = true;
 
+    public bool haveSteak;
+
     public void OnTriggerEnter(Collider other)
     {
         inFrontOfPan = true;
@@ -33,9 +35,9 @@ public class Pan : MonoBehaviour
 
     void Update()
     {
-        if (frD.steak)
+        if (frD.steak) // If you have a steak
         {
-            if (inFrontOfPan)
+            if (inFrontOfPan) // If you are in front of the pan
             {
                 print("Press S to put your steak in the pan");
                 if (Input.GetKey(KeyCode.S))
@@ -56,12 +58,14 @@ public class Pan : MonoBehaviour
                         grabAfterBurned = false;
                         PanSteak.SetBool("FrontStove", false);
                         GrabCookedSteak.SetBool("CookedSteak", true);
+                        haveSteak = true;
 
                     }
                 }
                 if (Input.GetKey(KeyCode.X))
                 {
                     GrabCookedSteak.SetBool("CookedSteak", false);
+                    haveSteak = false;
                 }
                 if (steakBurned)
                 {

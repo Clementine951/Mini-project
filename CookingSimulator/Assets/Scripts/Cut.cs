@@ -14,6 +14,9 @@ public class Cut : MonoBehaviour
     public Animator SliceCheese;
     public FridgeDoor frD;
 
+    public bool cheese = false;
+    public bool tomato = false;
+
     public void OnTriggerEnter(Collider other)
     {
         trig = true;
@@ -37,8 +40,6 @@ public class Cut : MonoBehaviour
     {
         if (trig)
         {
-            print("on trig");
-
             if (frD.tomato)
             {
                 print("Press C to cut a tomato ");
@@ -50,6 +51,7 @@ public class Cut : MonoBehaviour
                     StartCoroutine(ExecuteAfterTime(4));
                 }
             }
+
             if (frD.cheese)
             {
                 print("Press C to cut cheese");
@@ -69,11 +71,13 @@ public class Cut : MonoBehaviour
                 {
                     TomatoCut.SetBool("TomatoCut", false);
                     SliceTomato.SetBool("slice", true);
+                    tomato = true;
                 }
                 if (Input.GetKey(KeyCode.F))
                 {
                     CheeseCut.SetBool("CheeseCut", false);
                     SliceCheese.SetBool("sliceC", true);
+                    cheese = true;
                 }
             }
         }
@@ -81,6 +85,8 @@ public class Cut : MonoBehaviour
         {
             SliceCheese.SetBool("sliceC", false);
             SliceTomato.SetBool("slice", false);
+            tomato = false;
+            cheese = false;
 
         }
     }

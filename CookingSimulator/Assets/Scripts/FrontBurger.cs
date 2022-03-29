@@ -18,11 +18,11 @@ public class FrontBurger : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        print("You're in front of the burger! Press B and come closer to grab it.");
+        //print("You're in front of the burger! Press B and come closer to grab it.");
     }
 
     public void OnTriggerExit(Collider other)
     {
-        print("Pres C to realese it");
+        //print("Pres C to realese it");
     }
 }

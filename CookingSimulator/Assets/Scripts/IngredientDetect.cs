@@ -10,7 +10,7 @@ public class IngredientDetect : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        print("Press B and to grab the burger");
+        //print("Press B and to grab the burger");
         test = true;
     }
 
