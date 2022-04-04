@@ -37,7 +37,7 @@ public class Pan : MonoBehaviour
 
     void Update()
     {
-        if (frD.steak) // If you have a steak
+        if (frD.steak) // If you have a steak doesn't work, always true
         {
             if (inFrontOfPan) // If you are in front of the pan
             {
