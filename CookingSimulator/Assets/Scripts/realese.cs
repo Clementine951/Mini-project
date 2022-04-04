@@ -19,6 +19,7 @@ public class Realese : MonoBehaviour
     public GameObject cheese;
     public GameObject steak;
     public GameObject burger;
+    public GameObject text;
 
     private bool trig = false;
     private bool br = false;
@@ -35,7 +36,6 @@ public class Realese : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        print("Press M to realease");
         trig = true;
     }
 
@@ -69,6 +69,7 @@ public class Realese : MonoBehaviour
         {
             if (pantryD.havePlate)
             {
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press M to realease";
                 if (Input.GetKey(KeyCode.M))
                 {
                     pantryD.grabPlate.SetBool("grabPlate", false);
@@ -76,8 +77,10 @@ public class Realese : MonoBehaviour
                     pl = true;
                 }
             }
+
             if (pantryD.haveBread)
             {
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press M to realease";
                 if (Input.GetKey(KeyCode.M))
                 {
                     pantryD.grabBread.SetBool("grabBread", false);
@@ -85,66 +88,70 @@ public class Realese : MonoBehaviour
                     bread.SetActive(true);
                     bread1.SetActive(true);
                     br = true;
-                    if (pl)
-                    {
-                        pantryD.grabPlate.SetBool("grabPlate", true);
-                    }
+                    //if (pl)
+                    //{
+                    //    pantryD.grabPlate.SetBool("grabPlate", true);
+                    //}
                 }
             }
             if (fridgeD.salad)
             {
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press M to realease";
                 if (Input.GetKey(KeyCode.M))
                 {
                     fridgeD.grabSalad.SetBool("Salad", false);
                     plate.SetActive(true);
                     salad.SetActive(true);
                     sa = true;
-                    if (pl)
-                    {
-                        pantryD.grabPlate.SetBool("grabPlate", true);
-                    }
+                    //if (pl)
+                    //{
+                    //    pantryD.grabPlate.SetBool("grabPlate", true);
+                    //}
                 }
             }
             if (cut.tomato)
             {
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press M to realease";
                 if (Input.GetKey(KeyCode.M))
                 {
                     cut.SliceTomato.SetBool("slice", false);
                     plate.SetActive(true);
                     tomato.SetActive(true);
                     to = true;
-                    if (pl)
-                    {
-                        pantryD.grabPlate.SetBool("grabPlate", true);
-                    }
+                    //if (pl)
+                    //{
+                    //    pantryD.grabPlate.SetBool("grabPlate", true);
+                    //}
                 }
             }
             if (cut.cheese)
             {
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press M to realease";
                 if (Input.GetKey(KeyCode.M))
                 {
                     cut.SliceCheese.SetBool("sliceC", false);
                     plate.SetActive(true);
                     cheese.SetActive(true);
                     ch = true;
-                    if (pl)
-                    {
-                        pantryD.grabPlate.SetBool("grabPlate", true);
-                    }
+                    //if (pl)
+                    //{
+                    //    pantryD.grabPlate.SetBool("grabPlate", true);
+                    //}
                 }
             }
             if (pan.haveSteak)
             {
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press M to realease";
                 if (Input.GetKey(KeyCode.M))
                 {
                     pan.GrabCookedSteak.SetBool("CookedSteak", false);
                     plate.SetActive(true);
                     steak.SetActive(true);
                     st = true;
-                    if (pl)
-                    {
-                        pantryD.grabPlate.SetBool("grabPlate", true);
-                    }
+                    //if (pl)
+                    //{
+                    //    pantryD.grabPlate.SetBool("grabPlate", true);
+                    //}
                 }
             }
             if (Input.GetKey(KeyCode.X))
@@ -173,7 +180,7 @@ public class Realese : MonoBehaviour
 
                 pantryD.grabPlate.SetBool("grabPlate", false);
 
-                print("Press B to take the burger");
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press B to take the burger";
                 if (Input.GetKey(KeyCode.B))
                 {
                     inD.GrabIngredient.SetBool("grab", true);

@@ -18,6 +18,8 @@ public class Pan : MonoBehaviour
 
     public bool haveSteak;
 
+    public GameObject text;
+
     public void OnTriggerEnter(Collider other)
     {
         inFrontOfPan = true;
@@ -39,7 +41,8 @@ public class Pan : MonoBehaviour
         {
             if (inFrontOfPan) // If you are in front of the pan
             {
-                print("Press S to put your steak in the pan");
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press S to put your steak in the pan";
+
                 if (Input.GetKey(KeyCode.S))
                 {
                     PanSteak.SetBool("FrontStove", true);
@@ -51,7 +54,7 @@ public class Pan : MonoBehaviour
                 }
                 if (steakCooked)
                 {
-                    print("Press G to take your steak before it burns! ");
+                    text.GetComponent<UnityEngine.UI.Text>().text = "Press G to take your steak before it burns!";
 
                     if (Input.GetKey(KeyCode.G))
                     {
@@ -83,7 +86,8 @@ public class Pan : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        print("Your steak is cooked!");
+        text.GetComponent<UnityEngine.UI.Text>().text = "Your steak is cooked!";
+
         steakCooked = true;
     }
 
@@ -91,7 +95,7 @@ public class Pan : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        print("Your steak is burning!");
+        text.GetComponent<UnityEngine.UI.Text>().text = "Your steak is burning!";
         steakCooked = false;
         steakBurned = true;
         grabAfterBurned = true;

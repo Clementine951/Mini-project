@@ -17,6 +17,8 @@ public class Cut : MonoBehaviour
     public bool cheese = false;
     public bool tomato = false;
 
+    public GameObject text;
+
     public void OnTriggerEnter(Collider other)
     {
         trig = true;
@@ -42,7 +44,8 @@ public class Cut : MonoBehaviour
         {
             if (frD.tomato)
             {
-                print("Press C to cut a tomato ");
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press C to cut a tomato";
+
                 if (Input.GetKey(KeyCode.C))
                 {
                     Tomato.SetBool("Tomato", false);
@@ -54,7 +57,7 @@ public class Cut : MonoBehaviour
 
             if (frD.cheese)
             {
-                print("Press C to cut cheese");
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press C to cut cheese";
                 if (Input.GetKey(KeyCode.C))
                 {
                     Cheese.SetBool("Cheese", false);
@@ -94,13 +97,13 @@ public class Cut : MonoBehaviour
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-        print("Press T to grab your cut tomato");
+        text.GetComponent<UnityEngine.UI.Text>().text = "Press T to grab your cut tomato";
     }
 
     IEnumerator ExecuteAfterTimeCheese(float time)
     {
         yield return new WaitForSeconds(time);
-        print("Press F to grab your cut cheese");
+        text.GetComponent<UnityEngine.UI.Text>().text = "Press F to grab your cut cheese";
     }
 
 }

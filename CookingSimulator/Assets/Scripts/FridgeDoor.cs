@@ -23,6 +23,8 @@ public class FridgeDoor : MonoBehaviour
     public bool cheese = false;
     public bool salad = false;
 
+    public GameObject text;
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -33,13 +35,21 @@ public class FridgeDoor : MonoBehaviour
 
         if (paD.havePlate)
         {
-            print("Press S to grab a steak");
-            print("Press T to grab a tomato");
-            print("Press L to grab salad");
-            print("Press F to grab cheese");
-        }else
+            //print("Press S to grab a steak");
+            //print("Press T to grab a tomato");
+            //print("Press L to grab salad");
+            //print("Press F to grab cheese");
+            text.GetComponent<UnityEngine.UI.Text>().text =
+                "Press S to grab a steak | " +
+                "Press T to grab a tomato | " +
+                "Press L to grab salad | " +
+                "Press F to grab cheese | ";
+        }
+        else
         {
-            print("You need a plate to take ingredients.");
+            //print("You need a plate to take ingredients.");
+            text.GetComponent<UnityEngine.UI.Text>().text = "You need a plate to take ingredients";
+
         }
     }
 

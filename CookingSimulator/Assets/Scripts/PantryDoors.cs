@@ -15,14 +15,15 @@ public class PantryDoors : MonoBehaviour
 
     private bool test = false;
     private bool front = false;
-    //private bool plate = false;
     public bool havePlate = false;
     public bool haveBread = false;
+
+    public GameObject text;
 
 
     public void OnTriggerEnter(Collider other)
     {
-        print("You're in front of the pantry! Press N to open it.");
+        text.GetComponent<UnityEngine.UI.Text>().text = "You're in front of the pantry! Press N to open it.";
         test = true;
     }
 
@@ -50,20 +51,18 @@ public class PantryDoors : MonoBehaviour
                 front = true;
             }
             if (front) {
-                print("Press P to grab plate");
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press P to grab plate";
                 if (Input.GetKey(KeyCode.P))
                 {
                     grabPlate.SetBool("grabPlate", true);
-                    //plate = true;
                     havePlate = true;
                 }
             }
             if (havePlate)
             {
-                print("Press B to grab some bread");
+                text.GetComponent<UnityEngine.UI.Text>().text = "Press B to grab some bread";
                 if (Input.GetKey(KeyCode.B))
                 {
-                    print("you have bread");
                     grabPlate.SetBool("grabPlate", false);
                     grabBread.SetBool("grabBread", true);
                     haveBread = true;
@@ -75,7 +74,6 @@ public class PantryDoors : MonoBehaviour
         {
             grabBread.SetBool("grabBread", false);
             grabPlate.SetBool("grabPlate", false);
-            //plate = false;
             havePlate = false;
             haveBread = false;
         }

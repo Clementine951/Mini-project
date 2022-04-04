@@ -8,9 +8,11 @@ public class Stove : MonoBehaviour
     public Animator GrabSteak;
     private bool test = false;
 
+    public GameObject text;
+
     public void OnTriggerEnter(Collider other)
     {
-        print("Press S to put your uncooked steak on the pan");
+        text.GetComponent<UnityEngine.UI.Text>().text = "Press S to put your uncooked steak on the pan";
 
         test = true;
     }
