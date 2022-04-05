@@ -17,6 +17,7 @@ public class PantryDoors : MonoBehaviour
     private bool front = false;
     public bool havePlate = false;
     public bool haveBread = false;
+    public bool plat = false;
 
     public GameObject text;
 
@@ -56,6 +57,7 @@ public class PantryDoors : MonoBehaviour
                 {
                     grabPlate.SetBool("grabPlate", true);
                     havePlate = true;
+                    plat = true;
                 }
             }
             if (havePlate)
@@ -66,6 +68,7 @@ public class PantryDoors : MonoBehaviour
                     grabPlate.SetBool("grabPlate", false);
                     grabBread.SetBool("grabBread", true);
                     haveBread = true;
+                    plat = false;
                 }
             }
         }
@@ -75,6 +78,7 @@ public class PantryDoors : MonoBehaviour
             grabBread.SetBool("grabBread", false);
             grabPlate.SetBool("grabPlate", false);
             havePlate = false;
+            plat = false;
             haveBread = false;
         }
     }

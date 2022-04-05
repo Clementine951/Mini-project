@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Realese : MonoBehaviour
+public class realese : MonoBehaviour
 {
     public PantryDoors pantryD;
     public FridgeDoor fridgeD;
@@ -67,7 +67,7 @@ public class Realese : MonoBehaviour
     {
         if (trig)
         {
-            if (pantryD.havePlate)
+            if (pantryD.plat)
             {
                 text.GetComponent<UnityEngine.UI.Text>().text = "Press M to realease";
                 if (Input.GetKey(KeyCode.M))
@@ -88,10 +88,10 @@ public class Realese : MonoBehaviour
                     bread.SetActive(true);
                     bread1.SetActive(true);
                     br = true;
-                    //if (pl)
-                    //{
-                    //    pantryD.grabPlate.SetBool("grabPlate", true);
-                    //}
+                    if (pl)
+                    {
+                        pantryD.grabPlate.SetBool("grabPlate", true);
+                    }
                 }
             }
             if (fridgeD.salad)
@@ -103,10 +103,10 @@ public class Realese : MonoBehaviour
                     plate.SetActive(true);
                     salad.SetActive(true);
                     sa = true;
-                    //if (pl)
-                    //{
-                    //    pantryD.grabPlate.SetBool("grabPlate", true);
-                    //}
+                    if (pl)
+                    {
+                        pantryD.grabPlate.SetBool("grabPlate", true);
+                    }
                 }
             }
             if (cut.tomato)
@@ -118,10 +118,10 @@ public class Realese : MonoBehaviour
                     plate.SetActive(true);
                     tomato.SetActive(true);
                     to = true;
-                    //if (pl)
-                    //{
-                    //    pantryD.grabPlate.SetBool("grabPlate", true);
-                    //}
+                    if (pl)
+                    {
+                        pantryD.grabPlate.SetBool("grabPlate", true);
+                    }
                 }
             }
             if (cut.cheese)
@@ -133,10 +133,10 @@ public class Realese : MonoBehaviour
                     plate.SetActive(true);
                     cheese.SetActive(true);
                     ch = true;
-                    //if (pl)
-                    //{
-                    //    pantryD.grabPlate.SetBool("grabPlate", true);
-                    //}
+                    if (pl)
+                    {
+                        pantryD.grabPlate.SetBool("grabPlate", true);
+                    }
                 }
             }
             if (pan.haveSteak)
@@ -148,10 +148,10 @@ public class Realese : MonoBehaviour
                     plate.SetActive(true);
                     steak.SetActive(true);
                     st = true;
-                    //if (pl)
-                    //{
-                    //    pantryD.grabPlate.SetBool("grabPlate", true);
-                    //}
+                    if (pl)
+                    {
+                        pantryD.grabPlate.SetBool("grabPlate", true);
+                    }
                 }
             }
             if (Input.GetKey(KeyCode.X))

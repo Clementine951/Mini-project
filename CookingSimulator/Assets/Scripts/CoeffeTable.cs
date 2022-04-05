@@ -7,10 +7,10 @@ public class CoeffeTable : MonoBehaviour
     public GameObject burger;
     public GameObject text;
 
-    public Realese rea;
-    public Realese rea1;
-    public Realese rea2;
-    public Realese rea3;
+    public realese rea;
+    public realese rea1;
+    public realese rea2;
+    public realese rea3;
     public IngredientDetect inD;
 
     private void Awake()
